@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mongoengine.django.mongo_auth',
     'MusicDownload'
 ]
 
@@ -101,8 +102,25 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 AUTHENTICATION_BACKENDS = (
-        'mongoengine.django.auth.MongoEngineBackend',
-        )
+    'mongoengine.django.auth.MongoEngineBackend',
+)
+
+AUTH_USER_MODEL = 'mongo_auth.MongoUser'
+
+MONGOENGINE_USER_DOCUMENT = 'mongoengine.django.auth.User'
+
+#AUTHENTICATION_BACKENDS = (
+#    'django_mongoengine.mongo_auth.backends.MongoEngineBackend',
+#)
+
+# MongoDB settings
+#MONGODB_DATABASES = {
+ #   'default': {'name': 'django_mongoengine'}
+#}
+
+#SESSION_ENGINE = 'django_mongoengine.sessions'
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
