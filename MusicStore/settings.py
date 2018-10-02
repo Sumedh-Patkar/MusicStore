@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mongoengine.django.mongo_auth',
     'MusicDownload'
 ]
 
@@ -77,7 +76,8 @@ WSGI_APPLICATION = 'MusicStore.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.dummy',
+        'ENGINE': 'djongo',
+        'NAME': 'MusicDB',
     }
 }
 
@@ -101,13 +101,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-AUTHENTICATION_BACKENDS = (
-    'mongoengine.django.auth.MongoEngineBackend',
-)
+#AUTHENTICATION_BACKENDS = (
+#    'mongoengine.django.auth.MongoEngineBackend',
+#)
 
-AUTH_USER_MODEL = 'mongo_auth.MongoUser'
+#AUTH_USER_MODEL = 'mongo_auth.MongoUser'
 
-MONGOENGINE_USER_DOCUMENT = 'mongoengine.django.auth.User'
+#MONGOENGINE_USER_DOCUMENT = 'mongoengine.django.auth.User'
 
 #AUTHENTICATION_BACKENDS = (
 #    'django_mongoengine.mongo_auth.backends.MongoEngineBackend',
@@ -140,3 +140,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
