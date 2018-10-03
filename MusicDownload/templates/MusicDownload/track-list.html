@@ -1,12 +1,11 @@
 
 <h1>hey</h1>
-{% load staticfiles %}
+<!-- {% load staticfiles %} -->
 {%for track in all_tracks%}
 <ul>
 	<li>
-		{{track.track_name}}
-		<img src="{%static "MusicDownload/images/{{track.track_image}}" %}" >
-		<!-- <link href="{% static 'MusicDownload/images/{{track.track_image}}' %}"> -->
+		<a href = "/track" >{{track.track_name}}</a>
+		<img src=" {{ track.track_image.url }}" %}" height = 100px width="100px">
 	</li>
 
 </ul>
