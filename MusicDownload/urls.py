@@ -21,8 +21,8 @@ from . import views
 app_name = 'MusicDownload'
 
 urlpatterns = [
-    path('', views.index),
-    path('track-list/',views.track_list),
-    path('track/',views.track),
-    path('genre/',views.genre),
+    path('', views.index, name = "index"),
+    path('track-list/',views.track_list, name = "track-list"),
+    path('track/',views.track, name = "track"),
+    path('genre/',views.genre, name = "genre"),
 ]
