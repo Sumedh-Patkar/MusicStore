@@ -9,7 +9,7 @@ class Tracks(models.Model):
     track_album = models.CharField(max_length=100)
     track_length = models.FloatField()
     track_genre = models.CharField(max_length = 100)
-    track_language = models.CharField(max_length = 100)
+    track_language = models.CharField(max_length = 50)
     track_number = models.IntegerField()
     track_image = models.FileField()
     actual_track = models.FileField()
