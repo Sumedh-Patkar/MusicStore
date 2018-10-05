@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.urls import path
+from django.urls import path, re_path
 from django.contrib.auth import views as auth_views
 from . import views
 
@@ -23,6 +23,7 @@ app_name = 'MusicDownload'
 urlpatterns = [
     path('', views.index, name = "index"),
     path('track-list/',views.track_list, name = "track-list"),
-    path('track/',views.track, name = "track"),
+    re_path(r'^track/(?P<pk>\d+)/$',views.track, name = "track"),
     path('genre/',views.genre, name = "genre"),
+    re_path(r'^download/(?P<pk>\d+)/$', views.download, name="download"),
 ]

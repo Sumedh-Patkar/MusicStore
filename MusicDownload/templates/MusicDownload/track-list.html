@@ -4,8 +4,9 @@
 {%for track in all_tracks%}
 <ul>
 	<li>
-		<a href = "/track" >{{track.track_name}}</a>
-		<img src=" {{ track.track_image.url }}" %}" height = 100px width="100px">
+        <img src=" {{ track.track_image.url }}" %}" height = 100px width="100px">
+		<a href = "/track/{{track.pk}}" >{{track.track_name}}</a>
+		
 	</li>
 
 </ul>
