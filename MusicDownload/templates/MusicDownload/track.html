@@ -1,6 +1,12 @@
 <h1>Track</h1>
+
+{%for genre in all_genres%}
+<a href="/genre/{{ genre.pk }}">{{ genre.genre_name }}</a>
+{%endfor%}
+
 <h3>
 {{ selected_track.track_name }}</h3>
 <form action="/download/{{ selected_track.pk }}" method="GET">
     <input id="submit" type="submit" value="Download" />
 </form>
+

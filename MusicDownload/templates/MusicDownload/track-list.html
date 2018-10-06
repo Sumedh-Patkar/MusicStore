@@ -1,13 +1,15 @@
 
-<h1>hey</h1>
-<!-- {% load staticfiles %} -->
-{%for track in all_tracks%}
+<h1>ALL TRACKS</h1>
+{% for genre in all_genres %}
+<a href="/genre/{{ genre.pk }}">{{ genre.genre_name }}</a>
+{% endfor %}
+
+{% for track in all_tracks %}
 <ul>
 	<li>
         <img src=" {{ track.track_image.url }}" %}" height = 100px width="100px">
 		<a href = "/track/{{track.pk}}" >{{track.track_name}}</a>
-		
 	</li>
 
 </ul>
-{%endfor%}
+{% endfor %}

@@ -1,0 +1,14 @@
+<h1>Genre</h1>
+{%for genre in all_genres%}
+<a href="/genre/{{ genre.pk }}">{{ genre.genre_name }}</a>
+{%endfor%}
+
+{% for track in genre_track_list %}
+<ul>
+    <li>
+        <img src=" {{ track.track_image.url }}" %}" height = 100px width="100px">
+        <a href = "/track/{{track.pk}}" >{{track.track_name}}</a>
+    </li>
+
+</ul>
+{% endfor %}
