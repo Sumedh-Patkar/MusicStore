@@ -21,7 +21,7 @@ from . import views
 app_name = 'MusicDownload'
 
 urlpatterns = [
-    path('', views.index, name = "index"),
+    path('', views.home, name = "home"),
     path('track-list/',views.track_list, name = "track-list"),
     re_path(r'^track/(?P<pk>\d+)/$',views.track, name = "track"),
     re_path(r'^genre/(?P<pk>\d+)/$',views.genre, name = "genre"),
