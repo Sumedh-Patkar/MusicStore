@@ -24,6 +24,6 @@ urlpatterns = [
     path('', views.index, name = "index"),
     path('track-list/',views.track_list, name = "track-list"),
     re_path(r'^track/(?P<pk>\d+)/$',views.track, name = "track"),
-    path('genre/',views.genre, name = "genre"),
+    re_path(r'^genre/(?P<pk>\d+)/$',views.genre, name = "genre"),
     re_path(r'^download/(?P<pk>\d+)/$', views.download, name="download"),
 ]
