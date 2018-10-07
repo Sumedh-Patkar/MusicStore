@@ -1,14 +1,29 @@
-<h1>Genre</h1>
-{%for genre in all_genres%}
-<a href="/genre/{{ genre.pk }}">{{ genre.genre_name }}</a>
-{%endfor%}
+{% extends "MusicDownload/base.html" %}
 
-{% for track in genre_track_list %}
-<ul>
-    <li>
-        <img src=" {{ track.track_image.url }}" %}" height = 100px width="100px">
-        <a href = "/track/{{track.pk}}" >{{track.track_name}}</a>
-    </li>
 
-</ul>
-{% endfor %}
+{% block genrelist %}
+
+<h1>{{genre_name}}</h1>
+<div>
+{% for track in genre_track_list.iterator %}
+      
+          {% if forloop.counter0|divisibleby:'3' %}
+          {% if forloop.counter0 != 0 %}
+              </div>
+          {% endif %}
+          <div class = "row ">
+          {% endif %}
+          
+           <div style = "border-style: groove; padding:10px; margin:10px; background-color: powderblue; height: 130px;" class = "col-md-3" >
+              <img class = "img-fluid rounded h-100" src=" {{ track.track_image.url }}" %}" height = 100px width=100px>
+              <a style = "color: black; letter-spacing: 1px; font-family: Times New Roman;  font-size: 150%;" href = "/track/{{track.pk}}" >{{track.track_name}}</a>
+           </div>
+          
+      {% endfor %}
+      {% if not all_tracks.count|divisibleby:'3' %}
+          </div>
+      {%endif%}
+</div>
+
+
+{% endblock %}
