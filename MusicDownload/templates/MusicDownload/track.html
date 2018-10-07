@@ -1,12 +1,47 @@
-<h1>Track</h1>
-
-{%for genre in all_genres%}
-<a href="/genre/{{ genre.pk }}">{{ genre.genre_name }}</a>
-{%endfor%}
-
-<h3>
-{{ selected_track.track_name }}</h3>
-<form action="/download/{{ selected_track.pk }}" method="GET">
-    <input id="submit" type="submit" value="Download" />
-</form>
-
+{% extends "MusicDownload/base.html" %}
+{% block track %}
+	
+	<div class="container">
+		<table class="table table-dark table-hover" style="width: 90%">
+   		<tbody>
+		<tr>
+			<td style="column-span: 2;align-content: center;"><img class="img-fluid rounded" src="../../media/{{selected_track.track_image}}" alt="" border="3"></td>
+		</tr>
+      	<tr>
+      		<td style="padding-right: 150px;text-align: center;">Track Name </td>
+        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_name}}</td>
+    	</tr>
+    	<tr>
+    		<td style="padding-right: 150px;text-align: center;">Artist </td>
+        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_artist}}</td>
+    	</tr>
+    	<tr>
+    		<td style="padding-right: 150px;text-align: center;">Album </td>
+       		<td style="padding-right: 150px;text-align: center;">{{selected_track.track_album}}</td>
+    	</tr>
+    	<tr>
+    		<td style="padding-right: 150px;text-align: center;">Length </td>
+        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_length}}</td>
+    	</tr>
+    	<tr>
+    		<td style="padding-right: 150px;text-align: center;">Genre </td>
+        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_genre}}</td>
+    	</tr>
+    	<tr>
+    		<td style="padding-right: 150px;text-align: center;">Language </td>
+        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_language}}</td>
+    	</tr>
+    	<tr>
+    		<td style="padding-right: 150px;text-align: center;">Track Number </td>
+        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_number}}</td>
+    	</tr>
+    	<tr>
+    		<td></td>
+    		<td><form action="/download/7" method="GET">
+    		<input id="submit" type="submit" value="Download" class="btn btn-primary btn-lg">
+		</form></td>
+    	</tr>
+		</tbody>
+  		</table>
+	</div>	
+{% endblock %}
