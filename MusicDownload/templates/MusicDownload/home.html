@@ -1,0 +1,39 @@
+{% extends "MusicDownload/base.html" %}
+
+{% block home %}
+
+<div id="content_area" >
+	<div id = "site_info">
+		<h1> World Class Music Store </h1>
+		<p>Download from thousands of songs!</p>
+		<p>Play any song you like.</p>
+		<p>The best music store ever made!</p>
+  </div>
+
+  <div id="top_ten"> 
+    <h2>Top Ten Songs</h2>
+
+    {% for track in all_tracks.iterator %}
+      
+          {% if forloop.counter0|divisibleby:'3' %}
+          {% if forloop.counter0 != 0 %}
+              </div>
+          {% endif %}
+          <div class = "row ">
+          {% endif %}
+          
+           <div style = "border-style: groove; padding:10px; margin:10px; background-color: powderblue; height: 130px;" class = "col-md-3" >
+              <img class = "img-fluid rounded h-100" src=" {{ track.track_image.url }}" %}" height = 100px width=100px>
+              <a style = "color: black; letter-spacing: 1px; font-family: Times New Roman;  font-size: 150%;" href = "/track/{{track.pk}}" >{{track.track_name}}</a>
+           </div>
+          
+      {% endfor %}
+      {% if not all_tracks.count|divisibleby:'3' %}
+          </div>
+      {%endif%}
+
+    </div>
+
+</div>
+
+{% endblock %}
