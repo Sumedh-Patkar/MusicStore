@@ -8,9 +8,11 @@ import os
 
 # Create your views here.
 def home(request):
+    all_tracks = Tracks.objects.all() 
     all_genres = Genres.objects.all()
     page_variable = "home"
     context = {
+        "all_tracks" : all_tracks,
         "all_genres" : all_genres,
         "page_variable" : page_variable,
     }
@@ -49,6 +51,7 @@ def genre(request, pk):
         "genre_track_list" : genre_track_list,
         "all_genres" : all_genres,
         "page_variable" : page_variable,
+        "genre_name" : genre_name,
     }
     return render(request, 'MusicDownload/genre.html',context)
 

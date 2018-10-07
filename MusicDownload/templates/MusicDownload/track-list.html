@@ -1,3 +1,6 @@
+{% extends "MusicDownload/base.html" %}
+
+{% block tracklist %}
 
 <h1>ALL TRACKS</h1>
 {% for genre in all_genres %}
@@ -13,3 +16,5 @@
 
 </ul>
 {% endfor %}
+
+{% endblock %}
