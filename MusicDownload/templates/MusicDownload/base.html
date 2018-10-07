@@ -1,33 +1,122 @@
 <!DOCTYPE html>
 <html>
     <head>
-
-<!--    <link href='mystyle.css' rel='stylesheet' type='text/css'>  -->
     <title>Music Store</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" type="text/css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+   <style>
+   body {
+        width: 100wh;
+        height: 90vh;
+        color: #fff;
+        background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+        background-size: 400% 400%;
+        -webkit-animation: Gradient 15s ease infinite;
+        -moz-animation: Gradient 15s ease infinite;
+        animation: Gradient 15s ease infinite;
+        }
+
+        @-webkit-keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        @-moz-keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        @keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        
+
+   </style>
+
+
     </head>
-    <body>
+    <body  style="height:1000px; " >
+
+    <div id="container">
 
     {% if page_variable != "home" %}
-    <div id="container">
+   
     <div id="header">
-        <div id = "logo"> Logo(add image) </div>
+        <div id = "logo" style="height:20px; background-color: cyan;"> Music Store </div>
     </div>
 
     {% else %}
-        <!-- jumbotron header to be added here -->
+        <!-- jumbotron header added here (only for home page) -->
+
+    <div id="header" class="jumbotron text-center" style=" background-color: black;" >
+        <!-- <div id = "logo"> Logo(add image) </div> -->
+        <div class="container-fluid">
+          <br>
+          <h1>Music Store</h1>
+        </div>
+    </div>    
     
     {% endif %}
 
-    <!-- Change this navbar -->
-    <div id = "navbar">
-        <ul>
-            <li><a href="#"> HOME </a></li>
-            <li><a href="#"> GENRE </a></li>
-            <li><a href="/track-list/"> ALL TRACKS </a></li>
-        </ul>
-    </div>
+    <div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand" href="#">Logo</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/#header">HOME</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">GENRE</a>
+              <i class="fa fa-caret-down"></i>      
+              <div class="dropdown-menu"> 
 
+               <!--  <a class="dropdown-item" href="#">Trance</a>
+                <a class="dropdown-item" href="#">Bollywood</a>
+                <a class="dropdown-item" href="#">Marathi</a>
+                <a class="dropdown-item" href="#">House</a>
+                <a class="dropdown-item" href="#">Pop</a> -->
+
+                {%for genre in all_genres%}
+                    <a class="dropdown-item" href="/genre/{{ genre.pk }}">{{ genre.genre_name }}</a>
+                {%endfor%}
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/track-list">ALL TRACKS</a>
+            </li>
+        </ul>
+      </nav>  
+      </div>  
     {% if page_variable == "home" %}
     {% block home %}
     {% endblock %}
@@ -49,7 +138,7 @@
     {% endif %}
 
     <!-- Change this footer too -->
-    <div id = "footer">
+    <div id = "footer" >
         Footer
     </div>
 
