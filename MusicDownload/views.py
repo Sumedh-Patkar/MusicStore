@@ -64,3 +64,13 @@ def download(request, pk):
     response = HttpResponse(music_file_stream.read(), content_type = 'content_type: audio/mpeg')
     response['Content-Disposition'] = 'attachment; filename=' + (str)(selected_track.actual_track)
     return response
+
+def stream(request, pk):
+    selected_track = Tracks.objects.get(pk = pk)
+    print("Downloaded")
+    db = MongoClient().MusicDB
+    fs = GridFSBucket(db)
+    music_file_stream = fs.open_download_stream_by_name(selected_track.track_name)
+    response = HttpResponse(music_file_stream.read(), content_type = 'content_type: audio/mpeg')
+    
+    return response

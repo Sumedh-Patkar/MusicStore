@@ -26,4 +26,5 @@ urlpatterns = [
     re_path(r'^track/(?P<pk>\d+)/$',views.track, name = "track"),
     re_path(r'^genre/(?P<pk>\d+)/$',views.genre, name = "genre"),
     re_path(r'^download/(?P<pk>\d+)/$', views.download, name="download"),
+    re_path(r'^stream/(?P<pk>\d+)/$', views.stream, name="stream"),
 ]
