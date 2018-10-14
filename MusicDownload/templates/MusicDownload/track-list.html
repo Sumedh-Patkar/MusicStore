@@ -2,7 +2,7 @@
 
 {% block tracklist %}
 
-    <h1>ALL TRACKS</h1>
+    <h1 style= "color: black; font-size: 60px; text-align: center; padding-top: 10px">ALL TRACKS</h1><br>
 	{% for track in all_tracks.iterator %}
     
         {% if forloop.counter0|divisibleby:'3' %}
@@ -12,11 +12,10 @@
         <div class = "row ">
         {% endif %}
         
-	       <div style = "border-style: groove; padding:10px; margin:10px; background-color: black; height:120px;"class = "col-md-3">
-                <img class = "img-fluid rounded h-100" src=" {{ track.track_image.url }}" %}" height = 100px width=100px>
-                <a style = "color: white; letter-spacing: 1px; font-family: Times New Roman;  font-size: 150%; padding-left:50px" href = "/track/{{track.pk}}" >{{track.track_name}}</a>
-                <h4 style = "color: white; letter-spacing: 1px; font-family: Times New Roman; font-size: 150%; padding-left:50px">{{track.track_genre}}</h4>
-	       </div>
+	       <div style = " padding:15px; margin: 30px; background-color: #808080; height: 130px;" class = "col-md-3 bg-dark" >
+              <img class = "img-fluid rounded h-100" src=" {{ track.track_image.url }}" %}" height = 100px width=100px>
+              <a style = "color: white; letter-spacing: 1px; font-family: Times New Roman;  font-size: 150%;" href = "/track/{{track.pk}}" >{{track.track_name}}</a>
+           </div>
         
     {% endfor %}
     {% if not all_tracks.count|divisibleby:'3' %}

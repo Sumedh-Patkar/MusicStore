@@ -1,9 +1,8 @@
 {% extends "MusicDownload/base.html" %}
 
-
 {% block genrelist %}
 
-<h1>{{genre_name}}</h1>
+<h1>{{ genre_name }}</h1>
 <div>
 {% for track in genre_track_list.iterator %}
       
@@ -14,9 +13,9 @@
           <div class = "row ">
           {% endif %}
           
-           <div style = "border-style: groove; padding:10px; margin:10px; background-color: powderblue; height: 130px;" class = "col-md-3" >
+           <div style = " padding:10px; margin:10px; background-color: #808080; height: 130px;" class = "col-md-3 bg-dark" >
               <img class = "img-fluid rounded h-100" src=" {{ track.track_image.url }}" %}" height = 100px width=100px>
-              <a style = "color: black; letter-spacing: 1px; font-family: Times New Roman;  font-size: 150%;" href = "/track/{{track.pk}}" >{{track.track_name}}</a>
+              <a style = "color: white; letter-spacing: 1px; font-family: Times New Roman;  font-size: 150%;" href = "/track/{{track.pk}}" >{{track.track_name}}</a>
            </div>
           
       {% endfor %}
@@ -24,6 +23,6 @@
           </div>
       {%endif%}
 </div>
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 {% endblock %}

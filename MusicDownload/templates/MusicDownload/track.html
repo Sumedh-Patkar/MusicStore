@@ -8,36 +8,38 @@
 			<td style="column-span: 2;align-content: center;"><img class="img-fluid rounded" src="../../media/{{selected_track.track_image}}" alt="" border="3"></td>
 		</tr>
       	<tr>
-      		<td style="padding-right: 150px;text-align: center;">Track Name </td>
-        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_name}}</td>
+      		<td style="padding-right: 150px;text-align: center;"><strong>Track Name </strong></td>
+        	<td style="padding-right: 150px;text-align: center;"><strong>{{selected_track.track_name}}</strong></td>
     	</tr>
     	<tr>
-    		<td style="padding-right: 150px;text-align: center;">Artist </td>
-        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_artist}}</td>
+    		<td style="padding-right: 150px;text-align: center;"><strong>Artist </strong></td>
+        	<td style="padding-right: 150px;text-align: center;"><strong>{{selected_track.track_artist}}</strong></td>
     	</tr>
     	<tr>
-    		<td style="padding-right: 150px;text-align: center;">Album </td>
-       		<td style="padding-right: 150px;text-align: center;">{{selected_track.track_album}}</td>
+    		<td style="padding-right: 150px;text-align: center;"><strong>Album </strong></td>
+       		<td style="padding-right: 150px;text-align: center;"><strong>{{selected_track.track_album}}</strong></td>
     	</tr>
     	<tr>
-    		<td style="padding-right: 150px;text-align: center;">Length </td>
-        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_length}}</td>
+    		<td style="padding-right: 150px;text-align: center;"><strong>Length </strong></td>
+        	<td style="padding-right: 150px;text-align: center;"><strong>{{selected_track.track_length}}</strong></td>
     	</tr>
     	<tr>
-    		<td style="padding-right: 150px;text-align: center;">Genre </td>
-        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_genre}}</td>
+    		<td style="padding-right: 150px;text-align: center;"><strong>Genre </strong></td>
+        	<td style="padding-right: 150px;text-align: center;"><strong>{{selected_track.track_genre}}</strong></td>
     	</tr>
     	<tr>
-    		<td style="padding-right: 150px;text-align: center;">Language </td>
-        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_language}}</td>
+    		<td style="padding-right: 150px;text-align: center;"><strong>Language </strong></td>
+        	<td style="padding-right: 150px;text-align: center;"><strong>{{selected_track.track_language}}</strong></td>
     	</tr>
     	<tr>
-    		<td style="padding-right: 150px;text-align: center;">Track Number </td>
-        	<td style="padding-right: 150px;text-align: center;">{{selected_track.track_number}}</td>
+    		<td style="padding-right: 150px;text-align: center;"><strong>Track Number</strong> </td>
+        	<td style="padding-right: 150px;text-align: center;"><strong>{{selected_track.track_number}}</strong></td>
     	</tr>
     	<tr>
-    		<td></td>
-    		<td><form action="/download/7" method="GET">
+    		<td><form style="padding-right: 150px;text-align: center;" action="/stream/{{ selected_track.pk }}" method="GET">
+            <input id="submit" type="submit" value="Stream" class="btn btn-primary btn-lg">
+        </form></td>
+    		<td><form style="padding-right: 150px;text-align: center;" action="/download/{{ selected_track.pk }}" method="GET">
     		<input id="submit" type="submit" value="Download" class="btn btn-primary btn-lg">
 		</form></td>
     	</tr>
